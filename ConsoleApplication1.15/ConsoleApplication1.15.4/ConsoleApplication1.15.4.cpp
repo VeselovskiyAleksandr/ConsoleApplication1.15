@@ -38,19 +38,16 @@ cout << "\n Укажите рабочие частоты радиоприёмн�
 		correct =false;
 			return correct;
 	}
-	else if (currentRadioFrequency != radioFrequencies[i]) {
-	
+	else {
 	 float t=abs(currentRadioFrequency- radioFrequencies[0]), d=0;
 	 for (i = 0; i < 10; i++) {
 		 if (abs(currentRadioFrequency - radioFrequencies[i]) < t) {
 			 t = abs(currentRadioFrequency - radioFrequencies[i]);
-		 } cout << t << " ";
+		 }
 	 }
 	 cout << "\n Вы слушаете радиоприёмник на частоте " << currentRadioFrequency+t;
  }
-	else {
-		cout<<"\n Вы слушаете радиоприёмник на частоте "<< currentRadioFrequency;
-	}
+	
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
