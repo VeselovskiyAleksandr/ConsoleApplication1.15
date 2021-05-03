@@ -3,12 +3,16 @@
 
 #include <iostream>
 #include <locale.h>
+#include <cstring>
 using namespace std;
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-	bool warship = {};
-   
+bool battleship[4], cruiser[3], destroyer[2], militaryVessel[1];
+	cout<<"\n Размер массива  battleship  "<<sizeof(battleship) / sizeof(battleship[0]);
+	cout << "\n Размер массива  cruiser  " << sizeof(cruiser) / sizeof(cruiser[0]);
+	cout << "\n Размер массива  destroyer  " << sizeof(destroyer) / sizeof(destroyer[0]);
+	cout << "\n Размер массива  militaryVessel  " << sizeof(militaryVessel) / sizeof(militaryVessel[0]);
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
