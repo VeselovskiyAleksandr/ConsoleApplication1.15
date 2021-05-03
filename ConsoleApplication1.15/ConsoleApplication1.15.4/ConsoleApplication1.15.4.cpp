@@ -10,7 +10,7 @@ int main()
 {
 	setlocale(LC_ALL, "Russian");
 	float radioFrequencies[10], maxradioFrequencies = 0;
-	float currentRadioFrequency;
+	int radioCannal;
 	int i;
 	bool correct=true;
 cout << "\n Укажите рабочие частоты радиоприёмника ";
@@ -28,26 +28,24 @@ cout << "\n Укажите рабочие частоты радиоприёмн�
 			minradioFrequencies = radioFrequencies[i];
 		}
    }
-	cout << "\n Укажите радиочастоту, на которой собираетесь слушать радиоприёмник. ";
-	cin>> currentRadioFrequency;
- if (currentRadioFrequency == 0) {
-		cout<<"\n Радио выключено.";
-	}
-    else if ((currentRadioFrequency > maxradioFrequencies) || (currentRadioFrequency < minradioFrequencies)) {
-		cout<<"\n Вы указали недопустимую частоту.";
-		correct =false;
+
+	while (true) {
+		int radioCannal;
+		cout << "\n Укажите канал, который собираетесь слушать ";
+		cin >> radioCannal;
+		if (radioCannal < 0 || radioCannal>10) {
+			cout << "\n Указанный канал радиоприёмник не поддерживает.";
+			correct = false;
 			return correct;
+		}
+		else if (radioCannal == 0) {
+			cout << "\n Радио выключено.";
+			break;
+		}
+		else {
+			cout << "\n Вы слушаете радиоприёмник на частоте " << radioFrequencies[radioCannal - 1];
+		}
 	}
-	else {
-	 float t=abs(currentRadioFrequency- radioFrequencies[0]), d=0;
-	 for (i = 0; i < 10; i++) {
-		 if (abs(currentRadioFrequency - radioFrequencies[i]) < t) {
-			 t = abs(currentRadioFrequency - radioFrequencies[i]);
-		 }
-	 }
-	 cout << "\n Вы слушаете радиоприёмник на частоте " << currentRadioFrequency+t;
- }
-	
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
